@@ -3,7 +3,7 @@ node('master') {
     checkout scm
   }
   stage('build') {
-    sh 'composer install';
+    sh '/usr/local/bin/composer install';
   }
   stage('test') {
     sh './vendor/bin/phpunit';
