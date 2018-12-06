@@ -13,4 +13,8 @@ node('master') {
   stage('test') {
     sh './vendor/bin/phpunit';
   }
+
+  stage('xunit') {
+	junit 'reports/xunit';	
+  }
 }
