@@ -5,6 +5,11 @@ node('master') {
   stage('build') {
     sh '/usr/local/bin/composer install';
   }
+ stage('create-env-keys') {
+	sh 'cp .env.example .env';
+	sh 'php artisan key:generate';	
+  }
+
   stage('test') {
     sh './vendor/bin/phpunit';
   }
